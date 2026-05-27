@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <title>Σταμάτιος Μαρκαντωνάκης — Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5a6778;
+    --color-border-tertiary: #e5e7eb;
+    --color-background-primary: #ffffff;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  body.dark {
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #b5c0d0;
+  --color-border-tertiary: #2a3442;
+  --color-background-primary: #0f172a;
+}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+}
+body {
+  transition: background 0.25s ease, color 0.25s ease;
+}
+  html { scroll-behavior: smooth; }
+  #page-scroll {
+  position: fixed;
+  inset: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--color-background-primary);
+}
+
+.site {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  background: var(--color-background-primary);
+}
+
+  #site-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 2rem;
+  border-bottom:1px solid var(--color-border-tertiary);
+  background: var(--color-background-primary);
+  box-shadow:0 1px 10px rgba(0,0,0,0.06);
+  position:sticky;
+  top:0;
+  z-index:9999;
+  gap:2rem;
+  margin:0;
+}
+  .nav-logo { font-family:'DM Sans',sans-serif; font-size:22px; font-weight:400; letter-spacing:-0.3px; white-space:nowrap; flex-shrink:0; }
+  .nav-links { display:flex; gap:1.75rem; flex-shrink:0; }
+  .nav-links a { font-size:15px; color:var(--color-text-secondary); text-decoration:none; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; transition:color 0.2s; white-space:nowrap; }
+  .nav-links a:hover { color:var(--color-text-primary); }
+  .lang-toggle { display:flex; border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-md); overflow:hidden; flex-shrink:0; }
+  .lang-btn { padding:8px 16px; font-size:14px; font-weight:500; background:transparent; border:none; cursor:pointer; color:var(--color-text-secondary); font-family:'DM Sans',sans-serif; letter-spacing:0.04em; transition:background 0.15s,color 0.15s; }
+  .lang-btn.active { background:#1a5fb4; color:#fff; }
+
+  section {
+  padding: 4.5rem 2rem;
+  border-bottom: 1px solid var(--color-border-tertiary);
+  scroll-margin-top: 5.5rem;
+  background: var(--color-background-primary);
+}
+
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.theme-toggle {
+  width: 54px;
+  height: 28px;
+
+  border-radius: 999px;
+  border: 1px solid var(--color-border-tertiary);
+
+  background: var(--color-background-primary);
+
+  display: flex;
+  align-items: center;
+
+  padding: 3px;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  position: relative;
+}
+
+/* the sliding circle */
+.theme-toggle .knob {
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+
+  transform: translateX(0);
+  transition: all 0.3s ease;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* DARK STATE */
+body.dark .theme-toggle {
+  background: #1a5fb4;
+  border-color: #1a5fb4;
+}
+
+body.dark .theme-toggle .knob {
+  transform: translateX(26px);
+}
+
+.lang-btn {
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1;
+}
+  .container { max-width:860px; margin:0 auto; }
+  .hero { padding:6rem 2rem 5rem; }
+  .hero h1 { font-family:'DM Serif Display',serif; font-size:clamp(32px,4.5vw,52px); line-height:1.06; letter-spacing:-1px; margin-bottom:1.5rem; }
+  .hero-sub { font-size:16px; color:var(--color-text-secondary); line-height:1.75; max-width:580px; font-weight:300; }
+
+  .section-tag { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#1a5fb4; margin-bottom:2.5rem; display:flex; align-items:center; gap:8px; font-weight:500; }
+  .section-tag::after { content:''; flex:1; height:1px; background:#1a5fb4; opacity:0.2; }
+
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+  .about-text { font-size:15px; line-height:1.85; color:var(--color-text-secondary); font-weight:300; }
+  .about-text p+p { margin-top:1rem; }
+  .about-details { display:flex; flex-direction:column; }
+  .detail-row { display:flex; justify-content:space-between; align-items:center; padding:0.9rem 0; border-bottom:0.5px solid var(--color-border-tertiary); font-size:14px; gap:1rem; }
+  .detail-row:last-child { border-bottom:none; }
+  .detail-key { color:var(--color-text-secondary); flex-shrink:0; font-size:14px; font-weight:500; }
+  .detail-val { font-weight:500; text-align:right; font-size:14px; line-height:1.45; }
+  .detail-val a { color:#1a5fb4; text-decoration:none; font-weight:500; }
+  .detail-val a:hover { text-decoration:underline; }
+
+  .timeline { display:flex; flex-direction:column; }
+  .timeline-item { display:grid; grid-template-columns:150px 1fr; gap:2rem; padding:2rem 0; border-top:0.5px solid var(--color-border-tertiary); }
+  .timeline-item:last-child { border-bottom:0.5px solid var(--color-border-tertiary); }
+  .tl-date { font-size:12px; color:var(--color-text-secondary); line-height:1.5; padding-top:3px; }
+  .tl-company { font-size:12px; color:#1a5fb4; margin-top:4px; font-weight:500; }
+  .tl-company-sub { font-size:11px; color:#5a6778; margin-top:3px; line-height:1.4; font-weight:400; }
+  .tl-role { font-size:15px; font-weight:500; margin-bottom:0.5rem; }
+  .tl-desc { font-size:14px; color:var(--color-text-secondary); line-height:1.7; font-weight:300; }
+  .tl-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:1rem; }
+  .tag { font-size:12px; padding:3px 10px; border-radius:999px; background:#e8f0fb; color:#1a5fb4; border:0.5px solid #b6cff0; }
+
+  .skills-wrap { border-radius:var(--border-radius-lg); overflow:hidden; }
+  .skills-all { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:1px; background:var(--color-background-primary); }
+  .skill-item { background:var(--color-background-primary); padding:0.75rem 1.25rem; font-size:13px; color:var(--color-text-secondary); border:0.5px solid var(--color-border-tertiary); }
+
+  .projects-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--color-border-tertiary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); overflow:hidden; }
+  .project-card { background:var(--color-background-primary); padding:1.75rem; transition:background 0.2s; }
+  .project-card:hover {
+  background: rgba(26, 95, 180, 0.08);
+}
+  .project-card.featured { grid-column:1/-1; }
+  .project-num { font-family:'DM Serif Display',serif; font-size:13px; color:#1a5fb4; margin-bottom:0.75rem; }
+  .project-title { font-size:15px; font-weight:500; margin-bottom:0.6rem; }
+  .project-badge { display:inline-block; font-size:11px; padding:3px 11px; border-radius:999px; background:#1a5fb4; color:#fff; margin-bottom:0.75rem; letter-spacing:0.05em; font-weight:500; }
+  .project-desc { font-size:13px; color:var(--color-text-secondary); line-height:1.65; font-weight:300; }
+
+  .edu-list { display:flex; flex-direction:column; }
+  .edu-item { display:grid; grid-template-columns:150px 1fr; gap:2rem; padding:2rem 0; border-top:0.5px solid var(--color-border-tertiary); }
+  .edu-item:last-child { border-bottom:0.5px solid var(--color-border-tertiary); }
+  .edu-year { font-size:12px; color:var(--color-text-secondary); padding-top:3px; }
+  .edu-degree { font-size:15px; font-weight:500; margin-bottom:4px; }
+  .edu-school { font-size:13px; color:var(--color-text-secondary); }
+
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+  .contact-link-row { display:flex; align-items:center; gap:12px; font-size:14px; padding:1rem 0; border-bottom:0.5px solid var(--color-border-tertiary); }
+  .contact-link-row:last-child { border-bottom:none; }
+  .contact-link-row i { font-size:17px; color:#1a5fb4; }
+  .contact-link-label { color:var(--color-text-secondary); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; display:block; margin-bottom:2px; }
+  .contact-link-row a { color:#1a5fb4; text-decoration:none; font-weight:500; }
+  .contact-link-row a:hover { text-decoration:underline; }
+
+  .contact-form { display:flex; flex-direction:column; gap:0.875rem; }
+  .form-row { display:flex; flex-direction:column; gap:5px; }
+  .form-row label { font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text-secondary); }
+  .contact-form input,
+  .contact-form textarea { display:block; width:100%; padding:8px 11px; font-size:13px; border:1px solid #c8d0dc; border-radius:6px; background:#fff; color:#1a1a1a; font-family:'DM Sans',sans-serif; font-weight:300; transition:border-color 0.2s, box-shadow 0.2s; }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder { color:#9aa3b0; font-size:12px; }
+  .contact-form input:hover,
+  .contact-form textarea:hover { border-color:#a8b4c4; }
+  .contact-form input:focus,
+  .contact-form textarea:focus { outline:none; border-color:#1a5fb4; box-shadow:0 0 0 2px rgba(26,95,180,0.1); }
+  .contact-form textarea { resize:vertical; min-height:90px; }
+  .submit-btn { background:#1a5fb4; color:#fff; padding:9px 20px; border-radius:6px; font-size:13px; font-weight:500; cursor:pointer; border:none; transition:opacity 0.2s; align-self:flex-start; font-family:'DM Sans',sans-serif; }
+  .submit-btn:hover { opacity:0.85; }
+
+  .seminars-list { display:flex; flex-direction:column; }
+  .seminar-item { display:flex; align-items:center; gap:12px; padding:0.875rem 0; border-bottom:0.5px solid var(--color-border-tertiary); font-size:14px; color:var(--color-text-secondary); }
+  .seminar-item:first-child { border-top:0.5px solid var(--color-border-tertiary); }
+  .seminar-item i { font-size:15px; color:#1a5fb4; flex-shrink:0; }
+
+  footer {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-border-tertiary);
+  background: var(--color-background-primary);
+}
+  .footer-text { font-size:13px; color:var(--color-text-secondary); }
+
+  /* ── Hamburger button — hidden on desktop ── */
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-direction: column;
+    gap: 5px;
+    flex-shrink: 0;
+    margin-left: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-text-primary);
+    border-radius: 2px;
+    transition: all 0.25s ease;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── Mobile nav drawer ── */
+  .nav-links.mobile-open {
+    display: flex !important;
+  }
+
+  @media (max-width: 700px) {
+    #site-header {
+      padding: 0.875rem 1.25rem;
+      gap: 0.75rem;
+      flex-wrap: nowrap;
+      position: sticky;
+    }
+
+    .nav-logo {
+      font-size: 17px;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-hamburger {
+      display: flex;
+    }
+
+    .header-controls {
+      gap: 10px;
+    }
+
+    .lang-btn {
+      padding: 6px 9px;
+      font-size: 13px;
+    }
+
+    .theme-toggle {
+      width: 46px;
+      height: 24px;
+    }
+    .theme-toggle .knob {
+      width: 18px;
+      height: 18px;
+      font-size: 10px;
+    }
+    body.dark .theme-toggle .knob {
+      transform: translateX(22px);
+    }
+
+
+    /* Nav links become a full-width dropdown */
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: var(--color-background-primary);
+      border-bottom: 1px solid var(--color-border-tertiary);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      z-index: 9998;
+      padding: 0.5rem 0;
+    }
+    .nav-links a {
+      padding: 0.85rem 1.5rem;
+      font-size: 14px;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      display: block;
+    }
+    .nav-links a:last-child { border-bottom: none; }
+
+    /* Sections */
+    section { padding: 3rem 1.25rem; scroll-margin-top: 4rem; }
+    .hero { padding: 3.5rem 1.25rem 2.5rem; }
+    .hero h1 { font-size: clamp(28px, 7vw, 40px); margin-bottom: 1rem; }
+    .hero-sub { font-size: 15px; }
+
+    /* About grid → single column */
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+    /* Timeline → single column */
+    .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem 0; }
+    .tl-date { padding-top: 0; }
+
+    /* Education → single column */
+    .edu-item { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem 0; }
+
+    /* Projects grid → single column */
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: 1; }
+
+    /* Contact grid → single column */
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+    /* Skills grid — fewer columns on mobile */
+    .skills-all { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+
+    /* Footer */
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem 1.25rem; }
+
+    /* Detail rows */
+    .detail-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .detail-val { text-align: left; }
+
+    /* Submit button full width on mobile */
+    .submit-btn { width: 100%; text-align: center; }
+  }
+
+  @media (max-width: 420px) {
+    .nav-logo { font-size: 15px; }
+    .hero h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="page-scroll">
+<header id="site-header" role="banner">
+  <span class="nav-logo" data-en="Stamatios Markantonakis" data-el="Σταμάτιος Μαρκαντωνάκης">Stamatios Markantonakis</span>
+  <div class="nav-links" id="nav-links">
+    <a href="#about" data-en="About" data-el="Σχετικά">About</a>
+    <a href="#experience" data-en="Work Experience" data-el="Εργασιακή Εμπειρία">Experience</a>
+    <a href="#projects" data-en="Projects" data-el="Έργα">Projects</a>
+    <a href="#contact" data-en="Contact" data-el="Επικοινωνία">Contact</a>
+  </div>
+  <div class="header-controls">
+    <button class="theme-toggle" id="theme-toggle">
+      <span class="knob">🌙</span>
+    </button>
+    <!-- Language -->
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-el" onclick="setLang('el')">GR</button>
+    </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="site">
+
+  <section class="hero">
+    <div class="container">
+      <h1 data-en="Software Engineer" data-el="Software Engineer">Software Engineer</h1>
+      <p class="hero-sub"
+        data-en="Computer Science and Engineering graduate with a genuine interest in web development, cloud systems and distributed databases. Detail-oriented, reliable and focused on building software that is robust and reliable in real-world conditions."
+        data-el="Απόφοιτος του Τμήματος Μηχανικών Ηλεκτρονικών Υπολογιστών και Πληροφορικής με έμφαση στην ανάπτυξη εφαρμογών ιστού, τα συστήματα υπολογιστικού νέφους και τις κατανεμημένες βάσεις δεδομένων. Μεθοδικός, αξιόπιστος, με εστίαση στην ανάπτυξη λογισμικού που είναι ανθεκτικό και αξιόπιστο σε πραγματικές συνθήκες.">
+        Computer Science and Engineering graduate with a genuine interest in web development, cloud systems and distributed databases. Detail-oriented, reliable and focused on building software that is robust and reliable in real-world conditions.
+      </p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <p class="section-tag" data-en="About me" data-el="Σχετικά με εμένα">About me</p>
+      <div class="about-grid">
+        <div class="about-text">
+          <p data-en="I'm a Computer Science & Engineering graduate from the University of Ioannina, with a solid foundation in software development and hands-on experience in building reliable and scalable systems through academic research and applied projects."
+             data-el="Είμαι απόφοιτος του Τμήματος Μηχανικών Ηλεκτρονικών Υπολογιστών και Πληροφορικής του Πανεπιστημίου Ιωαννίνων, με ισχυρό υπόβαθρο στην ανάπτυξη λογισμικού και πρακτική εμπειρία στην ανάπτυξη αξιόπιστων και επεκτάσιμων συστημάτων μέσα από ερευνητικά και ακαδημαϊκά έργα.">
+            I'm a Computer Engineering & Informatics graduate from the University of Ioannina, with a solid foundation in software development and hands-on experience in building reliable and scalable systems through academic research and applied projects.
+          </p>
+          <p data-en="My diploma thesis and participation in research projects have strengthened my expertise in distributed database management systems, parallel computing, as well as web and cloud application development."
+             data-el="Η διπλωματική μου εργασία και η συμμετοχή μου σε ερευνητικά έργα ενίσχυσαν σημαντικά τις γνώσεις μου στα κατανεμημένα συστήματα διαχείρισης βάσεων δεδομένων, τον παράλληλο υπολογισμό, καθώς και στην ανάπτυξη εφαρμογών ιστού και υπολογιστικού νέφους.">
+            My diploma thesis and participation in research projects have strengthened my expertise in distributed database management systems, parallel computing, as well as web and cloud application development.
+          </p>
+        </div>
+        <div class="about-details">
+          <div class="detail-row">
+            <span class="detail-key" data-en="Location" data-el="Τοποθεσία">Location</span>
+            <span class="detail-val" data-en="Thessaloniki, Greece" data-el="Θεσσαλονίκη, Ελλάδα">Thessaloniki, Greece</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-key" data-en="Date of birth" data-el="Ημ. γέννησης">Date of birth</span>
+            <span class="detail-val">21/08/2001</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-key" data-en="Languages" data-el="Γλώσσες">Languages</span>
+            <span class="detail-val" data-en="Greek · English (C2) · German (A1)" data-el="Ελληνικά · Αγγλικά (C2) · Γερμανικά (A1)">Greek · English (C2) · German (A1)</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-key">GitHub</span>
+            <span class="detail-val"><a href="https://github.com/stamatismark" target="_blank">github.com/stamatismark</a></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-key">LinkedIn</span>
+            <span class="detail-val"><a href="https://www.linkedin.com/in/stamatiosmarkantonakis" target="_blank">linkedin.com/in/stamatiosmarkantonakis</a></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-key">Email</span>
+            <span class="detail-val">stamatismarkantonakis@gmail.com</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-key" data-en="Phone" data-el="Τηλέφωνο">Phone</span>
+            <span class="detail-val">(+30) 6937208652</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <p class="section-tag" data-en="Work experience" data-el="Εργασιακή Εμπειρία">Work experience</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div>
+            <div class="tl-date">09/2025 — 04/2026</div>
+            <div class="tl-company" data-en="University of Ioannina" data-el="Πανεπιστήμιο Ιωαννίνων">University of Ioannina</div>
+          </div>
+          <div>
+            <div class="tl-role" data-en="Research Software Engineer" data-el="Research Software Engineer">Research Software Engineer</div>
+            <div class="tl-desc"
+              data-en="Contributed to the Greek Living Earth research initiative, a national project focused on Earth observation data, AI-driven analysis, and geospatial infrastructure for sustainable environmental and agricultural management."
+              data-el="Συμμετοχή στο ερευνητικό έργο Greek Living Earth, μια εθνική πρωτοβουλία που επικεντρώνεται στην αξιοποίηση δεδομένων παρατήρησης της Γης, ανάλυσης με τεχνητή νοημοσύνη και γεωχωρικών υποδομών για τη βιώσιμη περιβαλλοντική και αγροτική διαχείριση.">
+              Contributed to the Greek Living Earth research initiative, a national project focused on Earth observation data, AI-driven analysis, and geospatial infrastructure for sustainable environmental and agricultural management.
+            </div>
+            <div class="tl-tags"><span class="tag">.NET / C#</span><span class="tag">Angular</span><span class="tag">PostgreSQL</span><span class="tag">AI</span><span class="tag">OpenDataCube</span></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div>
+            <div class="tl-date">06/2024 — 07/2024</div>
+            <div class="tl-company">Q BASE R&D</div>
+            <div class="tl-company-sub" data-en="Science & Technology Park of Epirus" data-el="Επιστημονικό & Τεχνολογικό Πάρκο Ηπείρου">Science & Technology Park of Epirus</div>
+          </div>
+          <div>
+            <div class="tl-role" data-en="Software Engineer Intern" data-el="Software Engineer Intern">Software Engineer Intern</div>
+            <div class="tl-desc"
+              data-en="Developed and extended web, cloud, and IoT applications. Built features using Java and PHP with SQL databases."
+              data-el="Ανάπτυξη και επέκταση εφαρμογών διαδικτύου, cloud και IoT. Υλοποίηση λειτουργιών χρησιμοποιώντας Java, PHP και SQL βάσεις δεδομένων.">
+              Developed and extended web, cloud, and IoT applications. Built features using Java and PHP with SQL databases.
+            </div>
+            <div class="tl-tags"><span class="tag">Java</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">IoT</span><span class="tag">Cloud</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <p class="section-tag" data-en="Skills" data-el="Δεξιότητες">Skills</p>
+      <div class="skills-wrap">
+        <div class="skills-all">
+          <div class="skill-item">Java</div>
+          <div class="skill-item">Python</div>
+          <div class="skill-item">C</div>
+          <div class="skill-item">C#</div>
+          <div class="skill-item">Angular</div>
+          <div class="skill-item">JavaScript</div>
+          <div class="skill-item">HTML / CSS</div>
+          <div class="skill-item">PHP</div>
+          <div class="skill-item">Ruby on Rails</div>
+          <div class="skill-item">Spring Boot</div>
+          <div class="skill-item">.NET</div>
+          <div class="skill-item">Atomikos</div>
+          <div class="skill-item">MySQL</div>
+          <div class="skill-item">PostgreSQL</div>
+          <div class="skill-item">Git</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <p class="section-tag" data-en="Projects" data-el="Έργα">Projects</p>
+      <div class="projects-grid">
+
+        <div class="project-card featured">
+          <div class="project-num">01</div>
+          <span class="project-badge" data-en="Diploma Thesis" data-el="Διπλωματική Εργασία">Diploma Thesis</span>
+          <div class="project-title" data-en="Evaluation of the consistent access of multiple Database Management Systems" data-el="Αξιολόγηση της συνεπούς προσπέλασης πολλαπλών Συστημάτων Διαχείρισης Βάσεων Δεδομένων">Evaluation of the consistent access of multiple Database Management Systems</div>
+          <div class="project-desc"
+            data-en="Studied and evaluated middleware enabling distributed transactions across homogenous and heterogeneous database systems. Built a Java application executing parallel transactions simultaneously on MySQL and PostgreSQL, testing atomicity, consistency, and fault tolerance under concurrent load."
+            data-el="Μελέτη και αξιολόγηση μεσολογισμικών που επιτρέπουν κατανεμημένες συναλλαγές σε ομογενή και ετερογενή συστήματα βάσεων δεδομένων. Δημιουργία εφαρμογής σε Java που εκτελούσε παράλληλες συναλλαγές ταυτόχρονα σε MySQL και PostgreSQL, με στόχο τη δοκιμή της ατομικότητας, της συνέπειας και της ανθεκτικότητας υπό ταυτόχρονο φόρτο.">
+            Studied and evaluated middleware enabling distributed transactions across homogenous and heterogeneous database systems. Built a Java application executing parallel transactions simultaneously on MySQL and PostgreSQL, testing atomicity, consistency, and fault tolerance under concurrent load.
+          </div>
+          <div class="tl-tags" style="margin-top:1rem"><span class="tag">Java</span><span class="tag">Atomikos</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">Distributed Systems</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">02</div>
+          <div class="project-title" data-en="FAT filesystem journaling — Linux Kernel" data-el="Καταγραφή (Journaling) στο σύστημα αρχείων FAT — Πυρήνας Linux">FAT filesystem journaling — Linux Kernel</div>
+          <div class="project-desc"
+            data-en="Extended the FAT file system within the Linux Kernel Library (LKL) by implementing a journaling mechanism in C."
+            data-el="Επέκταση του συστήματος αρχείων FAT στη βιβλιοθήκη του πυρήνα Linux (LKL), με υλοποίηση μηχανισμού καταγραφής (journaling) σε γλώσσα C.">
+            Extended the FAT file system within the Linux Kernel Library (LKL) by implementing a journaling mechanism in C.
+          </div>
+          <div class="tl-tags" style="margin-top:1rem"><span class="tag">C</span><span class="tag">Linux</span><span class="tag">LKL</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">03</div>
+          <div class="project-title" data-en="Thesis management web app" data-el="Διαδικτυακή εφαρμογή διαχείρισης διπλωματικών εργασιών">Thesis management web app</div>
+          <div class="project-desc"
+            data-en="A web application designed to streamline the process of assigning and completing diploma theses between students and professors, built with Java and Spring Boot."
+            data-el="Μια διαδικτυακή εφαρμογή σχεδιασμένη για την απλοποίηση της διαδικασίας ανάθεσης και εκπόνησης διπλωματικών εργασιών μεταξύ φοιτητών και καθηγητών, υλοποιημένη με Java και Spring Boot.">
+            A web application designed to streamline the process of assigning and completing diploma theses between students and professors, built with Java and Spring Boot.
+          </div>
+          <div class="tl-tags" style="margin-top:1rem"><span class="tag">Java</span><span class="tag">Spring Boot</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">04</div>
+          <div class="project-title" data-en="Photo sharing web app" data-el="Διαδικτυακή εφαρμογή κοινοποίησης φωτογραφιών">Photo sharing web app</div>
+          <div class="project-desc"
+            data-en="Instagram-style photo sharing application built with Ruby on Rails, enhanced with JavaScript for interactive UX."
+            data-el="Διαδικτυακή εφαρμογή κοινοποίησης φωτογραφιών τύπου Instagram, υλοποιημένη με Ruby on Rails, με ενισχυμένη διαδραστική εμπειρία χρήστη μέσω JavaScript.">
+            Instagram-style photo sharing application built with Ruby on Rails, enhanced with JavaScript for interactive UX.
+          </div>
+          <div class="tl-tags" style="margin-top:1rem"><span class="tag">Ruby on Rails</span><span class="tag">JavaScript</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">05</div>
+          <div class="project-title" data-en="Natural disaster data analysis" data-el="Ανάλυση δεδομένων φυσικών καταστροφών">Natural disaster data analysis</div>
+          <div class="project-desc"
+            data-en="System that analyses natural disaster datasets in Java, with comprehensive unit test coverage using JUnit."
+            data-el="Σύστημα ανάλυσης δεδομένων φυσικών καταστροφών, υλοποιημένο σε Java, με εκτενή κάλυψη unit tests χρησιμοποιώντας JUnit.">
+            System that analyses natural disaster datasets in Java, with comprehensive unit test coverage using JUnit.
+          </div>
+          <div class="tl-tags" style="margin-top:1rem"><span class="tag">Java</span><span class="tag">JUnit</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">06</div>
+          <div class="project-title" data-en="Sales app refactoring" data-el="Αναδιάρθρωση εφαρμογής διαχείρισης πωλήσεων">Sales app refactoring</div>
+          <div class="project-desc"
+            data-en="Refactored a Java sales management application by introducing design patterns and enhancing code readability, maintainability, and architectural structure."
+            data-el="Αναδιάρθρωση εφαρμογής διαχείρισης πωλήσεων σε Java με την εισαγωγή σχεδιαστικών προτύπων και τη βελτίωση της αναγνωσιμότητας, της συντηρησιμότητας και της αρχιτεκτονικής δομής του κώδικα.">
+            Refactored a Java sales management application by introducing design patterns and enhancing code readability, maintainability, and architectural structure.
+          </div>
+          <div class="tl-tags" style="margin-top:1rem"><span class="tag">Java</span><span class="tag">Design Patterns</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">07</div>
+          <div class="project-title" data-en="Compiler for a custom programming language" data-el="Μεταγλωττιστής για προσαρμοσμένη γλώσσα προγραμματισμού">Compiler for a custom language</div>
+          <div class="project-desc"
+            data-en="Implemented a compiler for a custom-designed programming language in Python. The compiler performs lexical, syntactic, and semantic analysis, and outputs appropriate diagnostic messages in case of errors."
+            data-el="Υλοποίηση μεταγλωττιστή για μια προσαρμοσμένη γλώσσα προγραμματισμού σε Python. Ο μεταγλωττιστής πραγματοποιεί λεξική, συντακτική και σημασιολογική ανάλυση και εμφανίζει κατάλληλα διαγνωστικά μηνύματα σε περίπτωση σφαλμάτων.">
+            Implemented a compiler for a custom-designed programming language in Python. The compiler performs lexical, syntactic, and semantic analysis, and outputs appropriate diagnostic messages in case of errors.
+          </div>
+          <div class="tl-tags" style="margin-top:1rem"><span class="tag">Python</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <p class="section-tag" data-en="Education" data-el="Εκπαίδευση">Education</p>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-year">2019 — 2025</div>
+          <div>
+            <div class="edu-degree" data-en="BSc Computer Engineering & Informatics" data-el="Δίπλωμα Μηχανικών Ηλεκτρονικών Υπολογιστών και Πληροφορικής">BSc Computer Engineering & Informatics</div>
+            <div class="edu-school" data-en="University of Ioannina — EQF Level 7" data-el="Πανεπιστήμιο Ιωαννίνων — Επίπεδο ΕΠΕΠ 7">University of Ioannina — EQF Level 7</div>
+          </div>
+        </div>
+      </div>
+      <p class="section-tag" style="margin-top:3rem" data-en="Conferences & Seminars" data-el="Συνέδρια & Σεμινάρια">Conferences & Seminars</p>
+      <div class="seminars-list">
+        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span data-en="Mobile Game Development — New Trends and Challenges" data-el="Ανάπτυξη Mobile Games — Νέες Τάσεις και Προκλήσεις">Mobile Game Development — New Trends and Challenges</span></div>
+        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span data-en="Core Fundamentals of Digital Marketing" data-el="Βασικές Αρχές Digital Marketing">Core Fundamentals of Digital Marketing</span></div>
+        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span data-en="Artificial Intelligence and Machine Learning with Python" data-el="Τεχνητή Νοημοσύνη και Machine Learning με Python">Artificial Intelligence and Machine Learning with Python</span></div>
+        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span data-en="TeamViewer: Getting Started in Engineering" data-el="TeamViewer: Εισαγωγή στη Μηχανική">TeamViewer: Getting Started in Engineering</span></div>
+        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span data-en="5G Networks and Beyond — Security and Challenges in the AI Era" data-el="5G Networks και πέρα — Ασφάλεια και Προκλήσεις στην Εποχή της ΤΝ">5G Networks and Beyond — Security and Challenges in the AI Era</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <p class="section-tag" data-en="Contact" data-el="Επικοινωνία">Contact</p>
+      <div class="contact-grid">
+
+        <!-- LEFT: contact info -->
+        <div>
+          <div class="contact-link-row">
+            <i class="ti ti-map-pin"></i>
+            <div>
+              <span class="contact-link-label" data-en="Location" data-el="Τοποθεσία">Location</span>
+              <span data-en="Thessaloniki, Greece" data-el="Θεσσαλονίκη, Ελλάδα">Thessaloniki, Greece</span>
+            </div>
+          </div>
+          <div class="contact-link-row">
+            <i class="ti ti-brand-linkedin"></i>
+            <div>
+              <span class="contact-link-label">LinkedIn</span>
+              <a href="https://www.linkedin.com/in/stamatiosmarkantonakis" target="_blank">linkedin.com/in/stamatiosmarkantonakis</a>
+            </div>
+          </div>
+          <div class="contact-link-row">
+            <i class="ti ti-mail"></i>
+            <div>
+              <span class="contact-link-label">Email</span>
+              stamatismarkantonakis@gmail.com
+            </div>
+          </div>
+          <div class="contact-link-row">
+            <i class="ti ti-phone"></i>
+            <div>
+              <span class="contact-link-label" data-en="Phone" data-el="Τηλέφωνο">Phone</span>
+              (+30) 6937208652
+            </div>
+          </div>
+        </div>
+
+        
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Your name">
+          </div>
+
+          <div class="form-row">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="your@email.com">
+          </div>
+
+          <div class="form-row">
+            <label>Message</label>
+            <textarea name="message" placeholder="Tell me about the opportunity..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send message</button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-text" data-en="© 2026 Stamatios Markantonakis" data-el="© 2026 Σταμάτιος Μαρκαντωνάκης">© 2026 Stamatios Markantonakis</span>
+    <span class="footer-text" style="color:#1a5fb4"></span>
+  </footer>
+
+</main>
+</div>
+
+<script>
+function setLang(lang) {
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-el').classList.toggle('active', lang === 'el');
+
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text !== null) el.innerHTML = text;
+  });
+}
+
+// Apply default language on load
+setLang('en');
+
+// Hamburger menu
+const hamburger = document.getElementById('nav-hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('mobile-open');
+});
+// Close menu when a link is tapped
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('mobile-open');
+  });
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+emailjs.init("2uJHBG3dDjOH6Nzhh");
+
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const serviceID = "service_t8vqlir";
+  const mainTemplate = "template_vlzk8c1";
+  const autoReplyTemplate = "template_02ozlrc";
+
+  // 1. Send message to YOU
+  emailjs.sendForm(serviceID, mainTemplate, this)
+    .then(() => {
+
+      // 2. Send auto-reply to USER
+      return emailjs.sendForm(serviceID, autoReplyTemplate, this);
+    })
+    .then(() => {
+      alert("Message sent successfully!");
+      this.reset();
+    })
+    .catch((err) => {
+      console.error(err);
+      alert("Something went wrong. Try again.");
+    });
+});
+</script>
+
+<script>
+const toggle = document.getElementById("theme-toggle");
+const knob = toggle.querySelector(".knob");
+
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  const isDark = document.body.classList.contains("dark");
+
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+
+  knob.textContent = isDark ? "☀️" : "🌙";
+});
+
+window.addEventListener("load", () => {
+  const saved = localStorage.getItem("theme");
+
+  if (saved === "dark") {
+    document.body.classList.add("dark");
+    knob.textContent = "☀️";
+  }
+});
+</script>
+
+</body>
+</html>
