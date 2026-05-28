@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no, date=no, email=no, address=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
   <title>Σταμάτιος Μαρκαντωνάκης — Portfolio</title>
 <style>
@@ -267,10 +268,10 @@ body.dark .theme-toggle .knob {
 
     .nav-logo {
       font-size: 17px;
-      flex: 1;
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      flex-shrink: 1;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: unset;
     }
 
     .nav-hamburger {
@@ -465,9 +466,9 @@ body.dark .theme-toggle .knob {
           <div>
             <div class="tl-role" data-en="Research Software Engineer" data-el="Research Software Engineer">Research Software Engineer</div>
             <div class="tl-desc"
-              data-en="Contributed to the Greek Living Earth research initiative, a national project focused on Earth observation data, AI-driven analysis, and geospatial infrastructure for sustainable environmental and agricultural management."
-              data-el="Συμμετοχή στο ερευνητικό έργο Greek Living Earth, μια εθνική πρωτοβουλία που επικεντρώνεται στην αξιοποίηση δεδομένων παρατήρησης της Γης, ανάλυσης με τεχνητή νοημοσύνη και γεωχωρικών υποδομών για τη βιώσιμη περιβαλλοντική και αγροτική διαχείριση.">
-              Contributed to the Greek Living Earth research initiative, a national project focused on Earth observation data, AI-driven analysis, and geospatial infrastructure for sustainable environmental and agricultural management.
+              data-en="Contributed to the Greek Living Earth research initiative, a national project focused on Earth observation data, AI-driven analysis and geospatial infrastructure for sustainable environmental and agricultural management."
+              data-el="Συμμετοχή στο ερευνητικό έργο Greek Living Earth, μία εθνική πρωτοβουλία που επικεντρώνεται στην αξιοποίηση δεδομένων παρατήρησης της Γης, στην ανάλυση με τεχνητή νοημοσύνη και στις γεωχωρικές υποδομές για τη βιώσιμη περιβαλλοντική και αγροτική διαχείριση.">
+              Contributed to the Greek Living Earth research initiative, a national project focused on Earth observation data, AI-driven analysis and geospatial infrastructure for sustainable environmental and agricultural management.
             </div>
             <div class="tl-tags"><span class="tag">.NET / C#</span><span class="tag">Angular</span><span class="tag">PostgreSQL</span><span class="tag">AI</span><span class="tag">OpenDataCube</span></div>
           </div>
@@ -481,9 +482,9 @@ body.dark .theme-toggle .knob {
           <div>
             <div class="tl-role" data-en="Software Engineer Intern" data-el="Software Engineer Intern">Software Engineer Intern</div>
             <div class="tl-desc"
-              data-en="Developed and extended web, cloud, and IoT applications. Built features using Java and PHP with SQL databases."
+              data-en="Developed and extended web, cloud and IoT applications. Built features using Java and PHP with SQL databases."
               data-el="Ανάπτυξη και επέκταση εφαρμογών διαδικτύου, cloud και IoT. Υλοποίηση λειτουργιών χρησιμοποιώντας Java, PHP και SQL βάσεις δεδομένων.">
-              Developed and extended web, cloud, and IoT applications. Built features using Java and PHP with SQL databases.
+              Developed and extended web, cloud and IoT applications. Built features using Java and PHP with SQL databases.
             </div>
             <div class="tl-tags"><span class="tag">Java</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">IoT</span><span class="tag">Cloud</span></div>
           </div>
@@ -528,7 +529,7 @@ body.dark .theme-toggle .knob {
           <div class="project-title" data-en="Evaluation of the consistent access of multiple Database Management Systems" data-el="Αξιολόγηση της συνεπούς προσπέλασης πολλαπλών Συστημάτων Διαχείρισης Βάσεων Δεδομένων">Evaluation of the consistent access of multiple Database Management Systems</div>
           <div class="project-desc"
             data-en="Studied and evaluated middleware enabling distributed transactions across homogenous and heterogeneous database systems. Built a Java application executing parallel transactions simultaneously on MySQL and PostgreSQL, testing atomicity, consistency, and fault tolerance under concurrent load."
-            data-el="Μελέτη και αξιολόγηση μεσολογισμικών που επιτρέπουν κατανεμημένες συναλλαγές σε ομογενή και ετερογενή συστήματα βάσεων δεδομένων. Δημιουργία εφαρμογής σε Java που εκτελούσε παράλληλες συναλλαγές ταυτόχρονα σε MySQL και PostgreSQL, με στόχο τη δοκιμή της ατομικότητας, της συνέπειας και της ανθεκτικότητας υπό ταυτόχρονο φόρτο.">
+            data-el="Μελέτη και αξιολόγηση μεσολογισμικών που επιτρέπουν κατανεμημένες συναλλαγές σε ομογενή και ετερογενή συστήματα βάσεων δεδομένων. Δημιουργία εφαρμογής σε Java που εκτελεί παράλληλες συναλλαγές ταυτόχρονα σε MySQL και PostgreSQL, με στόχο τη δοκιμή της ατομικότητας, της συνέπειας και της ανθεκτικότητας υπό ταυτόχρονο φόρτο.">
             Studied and evaluated middleware enabling distributed transactions across homogenous and heterogeneous database systems. Built a Java application executing parallel transactions simultaneously on MySQL and PostgreSQL, testing atomicity, consistency, and fault tolerance under concurrent load.
           </div>
           <div class="tl-tags" style="margin-top:1rem"><span class="tag">Java</span><span class="tag">Atomikos</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">Distributed Systems</span></div>
@@ -611,18 +612,18 @@ body.dark .theme-toggle .knob {
         <div class="edu-item">
           <div class="edu-year">2019 — 2025</div>
           <div>
-            <div class="edu-degree" data-en="BSc Computer Engineering & Informatics" data-el="Δίπλωμα Μηχανικών Ηλεκτρονικών Υπολογιστών και Πληροφορικής">BSc Computer Engineering & Informatics</div>
+            <div class="edu-degree" data-en="Integrated Master in Computer Science & Engineering" data-el="Δίπλωμα Μηχανικών Ηλεκτρονικών Υπολογιστών και Πληροφορικής">Integrated Master in Computer Science & Engineering</div>
             <div class="edu-school" data-en="University of Ioannina — EQF Level 7" data-el="Πανεπιστήμιο Ιωαννίνων — Επίπεδο ΕΠΕΠ 7">University of Ioannina — EQF Level 7</div>
           </div>
         </div>
       </div>
       <p class="section-tag" style="margin-top:3rem" data-en="Conferences & Seminars" data-el="Συνέδρια & Σεμινάρια">Conferences & Seminars</p>
       <div class="seminars-list">
-        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span data-en="Mobile Game Development — New Trends and Challenges" data-el="Ανάπτυξη Mobile Games — Νέες Τάσεις και Προκλήσεις">Mobile Game Development — New Trends and Challenges</span></div>
-        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span data-en="Core Fundamentals of Digital Marketing" data-el="Βασικές Αρχές Digital Marketing">Core Fundamentals of Digital Marketing</span></div>
-        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span data-en="Artificial Intelligence and Machine Learning with Python" data-el="Τεχνητή Νοημοσύνη και Machine Learning με Python">Artificial Intelligence and Machine Learning with Python</span></div>
-        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span data-en="TeamViewer: Getting Started in Engineering" data-el="TeamViewer: Εισαγωγή στη Μηχανική">TeamViewer: Getting Started in Engineering</span></div>
-        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span data-en="5G Networks and Beyond — Security and Challenges in the AI Era" data-el="5G Networks και πέρα — Ασφάλεια και Προκλήσεις στην Εποχή της ΤΝ">5G Networks and Beyond — Security and Challenges in the AI Era</span></div>
+        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span class="no-translate">Mobile Game Development — New Trends and Challenges</span></div>
+        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span class="no-translate">Core Fundamentals of Digital Marketing</span></div>
+        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span class="no-translate">Artificial Intelligence and Machine Learning with Python</span></div>
+        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span class="no-translate">TeamViewer: Getting Started in Engineering</span></div>
+        <div class="seminar-item"><i class="ti ti-calendar-event"></i><span class="no-translate">5G Networks and Beyond — Security and Challenges in the AI Era</span></div>
       </div>
     </div>
   </section>
@@ -702,6 +703,8 @@ function setLang(lang) {
   document.getElementById('btn-el').classList.toggle('active', lang === 'el');
 
   document.querySelectorAll('[data-en]').forEach(el => {
+    if (el.classList.contains('no-translate')) return;
+
     const text = el.getAttribute('data-' + lang);
     if (text !== null) el.innerHTML = text;
   });
